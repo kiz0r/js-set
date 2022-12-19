@@ -28,6 +28,8 @@ console.groupEnd();
 
 console.log('sum of elements of mySet = ' + sumOfSetElements);
 
+console.dir(mySet); // => 1 2 3 14 9 10 0
+
 mySet.delete(2);
 
 console.group('mySet without 2');
@@ -52,7 +54,7 @@ console.log('uniqArr1 => ', uniqArr1);
 const uniqArr2 = [...new Set([...arr1, ...arr2])];
 console.log('uniqArr2 => ', uniqArr2);
 
-// * З масиву
+//  З масиву
 // const messages = [
 //   { id: 1, name: 'Ivo', message: 'hello', date: new Date() },
 //   { id: 2, name: 'Ivo', message: 'how are you', date: new Date() },
@@ -68,3 +70,16 @@ console.log('uniqArr2 => ', uniqArr2);
 
 //   Wally => [{message, date}, {message, date}]
 // }
+
+const messages = [
+  { id: 1, name: 'Ivo', message: 'hello', date: new Date() },
+  { id: 2, name: 'Ivo', message: 'how are you', date: new Date() },
+  { id: 3, name: 'Wally', message: 'hi)', date: new Date() },
+  { id: 4, name: 'Wally', message: 'fine)', date: new Date() },
+];
+
+const userNamesArray = [...new Set(messages.map((el) => el.name))];
+
+console.log(userNamesArray);
+
+const chat = new Map();
