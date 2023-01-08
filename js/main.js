@@ -78,8 +78,15 @@ const messages = [
   { id: 4, name: 'Wally', message: 'fine)', date: new Date() },
 ];
 
-const userNamesArray = [...new Set(messages.map((el) => el.name))];
+const userMessages = new Map();
 
-console.log(userNamesArray);
+messages.forEach(({ name, message, date }) => {
+  const key = { message, date };
+  if (!userMessages.has(name)) {
+    userMessages.set(name, []);
+  }
 
-const chat = new Map();
+  userMessages.get(name).push(key);
+});
+
+console.log(userMessages);
